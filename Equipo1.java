@@ -327,19 +327,21 @@ public class Equipo1{
             							System.out.printf("Estas seguro que quieres eliminar el registro? (si - no): ");
             							String resp = read.nextLine();
             							if(resp.toUpperCase().equals("SI")){
-                							for(int i = atm ; i < folios.length -1; i++){
+                							for(int i = autoMotor ; i < atm -1; i++){
                 									folios[i] = folios[i+1];
                 									plates[i] = plates[i+1];
                 									brands[i] = brands[i+1];
                 									models[i] = models[i+1];
                 									colors[i] = colors[i+1];
+                                          fines[i]  = fines[i+1];
+
                 							}
-                                    folios[folios.length -1] = -1;
-                                    plates[folios.length -1] = null;
-                                    brands[folios.length -1] = null;
-                                    models[folios.length -1] = null;
-                                    colors[folios.length -1] = null;
-                                    fines[folios.length -1]  = 0;
+                                    folios[atm -1] = -1;
+                                    plates[atm -1] = null;
+                                    brands[atm -1] = null;
+                                    models[atm -1] = null;
+                                    colors[atm -1] = null;
+                                    fines[atm -1]  = 0;
                                     atm--;
                 							System.out.println("El registro fue eliminado con exito");
             							} else{ System.out.println("No se realizaron cambios en el registro"); break;}      
