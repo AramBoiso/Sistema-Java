@@ -4,12 +4,12 @@ public class Equipo1{
       
       Scanner read = new Scanner(System.in);
       
-      int folios[] = new int[10]; //Change to 70
-      String plates[] = new String[10];
-      String brands[] = new String[10];
-      String models[] = new String[10];
-      String colors[] = new String[10];
-      float fines[] = new float[10];
+      int folios[] = new int[70]; //Change to 70
+      String plates[] = new String[70];
+      String brands[] = new String[70];
+      String models[] = new String[70];
+      String colors[] = new String[70];
+      float fines[] = new float[70];
       
       
       int atm = 0, folio = 0, autoMotor = 0;
@@ -53,7 +53,7 @@ public class Equipo1{
                         System.out.println("Numero de folio exedido, ingrese uno nuevo en el rango [1 - 100]");
                         System.out.println();
                      }else{
-                        if(atm == 10) System.out.println("Memoria Llena :C, porfavor vaya a la opcion 'Baja' y elimine un automotaor para liberar espacio");
+                        if(atm == 70) System.out.println("Memoria Llena :C, porfavor vaya a la opcion 'Baja' y elimine un automotaor para liberar espacio");
                         else
                            if(atm > 0)
                             for(int i = 0; i <= atm; i++){
