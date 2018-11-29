@@ -1,7 +1,7 @@
 import java.util.*;
 public class Equipo1{
    public static void main(String[] args){
-      //Code Actually
+      //Code Actually.0
       Scanner read = new Scanner(System.in);
       
       int folios[] = new int[70]; //Change to 70
@@ -35,6 +35,8 @@ public class Equipo1{
          switch(opc){
          
             case '1':
+               exists = false;
+               fol = "";
                System.out.println();
                System.out.println("ALTA");
                System.out.print("Ingresa el folio: ");
@@ -97,14 +99,13 @@ public class Equipo1{
                                     }while(exists != true);
                                     System.out.println(); atm++;
                                     System.out.println("Registro agregado con Exito");
-                                     
                                     break;
                                  }
                               }
                            else{
                            if(fol.length() > 9){ System.out.println(); System.out.println("Numero de folio no valido, ingrese uno nuevo en el rango [1 - 100]"); System.out.println();}
                               else
-                                 if(folio > 0 && folio < 100){ // uno
+                                 if(folio > 0 || folio <= 100){ // uno
                                     folios[atm] = folio;
                                     System.out.print("Placas: ");
                                     plates[atm] = read.nextLine();
@@ -139,7 +140,8 @@ public class Equipo1{
                      }    
                break;
             
-            case '2':   
+            case '2': 
+               exists = false;  
                if(atm > 0){ 
                     
                   System.out.println();
@@ -172,7 +174,7 @@ public class Equipo1{
                                     exists = false;
                                     break;
                                  }else exists = true;
-                           }else System.out.println("\n Numero de folio no valido, ingrese uno nuevo en el rango [1 - 100] ");    
+                           }else{ System.out.println("\n Numero de folio no valido, ingrese uno nuevo en el rango [1 - 100]"); exists = false; };    
                            if(exists) System.out.printf("\nEl folio %d no existe en el registro \n", folio);  // Avisa si ese folio no se encuentra registrado.
                         }
                      }
@@ -223,6 +225,7 @@ public class Equipo1{
                   System.out.println("Lo sentimos aun no hay registros agregados");
                break;
             case '4':  
+               exists = false;
                if(atm > 0){
                
                   System.out.println();
@@ -241,15 +244,16 @@ public class Equipo1{
                         
                            folio = Integer.parseInt(fol);
                            if(folio > 0 && folio <= 100){
-                              for(int i= 0; i < atm; i++)
+                           
+                              for(int i= 0; i <= atm; i++)
                                  if(folio == folios[i]){
                                     exists = false;
                                     autoMotor = i;
                                     break;
-                                 }else{ System.out.printf("\nEl folio %d no se encuentra registrado\n", folio); break;}
-                           }else System.out.println("\n Numero de folio no valido, ingrese uno nuevo en el rango [1 - 100]"); // Avisa si el folio ingresado esta fuera del rango.
+                                 }else exists = true;
+                           }else{ System.out.println("\n Numero de folio no valido, ingrese uno nuevo en el rango [1 - 100]"); exists = false; } // Avisa si el folio ingresado esta fuera del rango.
    
-                                                   
+                           if(exists){ System.out.printf("\nEl folio %d no se encuentra registrado\n", folio); break;}                        
                               //Menu
                            if(exists == false)
                               do{
@@ -320,6 +324,7 @@ public class Equipo1{
                }else System.out.println("Lo sentimos, aun no se agregan registros");
                break;
             case '5': 
+            exists = false;
                if(atm > 0){ //Tiene llave de cierre
                   
                   System.out.println();
@@ -346,7 +351,7 @@ public class Equipo1{
                                     delete = true;
                                     break;
                                  }else{ exists = true; delete = false;} 
-                           }else System.out.println("\n Numero de folio no valido, ingrese uno nuevo en el rango [1 - 100]");     
+                           }else{ System.out.println("\n Numero de folio no valido, ingrese uno nuevo en el rango [1 - 100]"); exists = false; }    
                            
                                if(exists) System.out.printf("\nEl folio %d no se encuentra registrado\n", folio); 
                                 
@@ -398,7 +403,7 @@ public class Equipo1{
                System.out.printf("\n  30 de Noviembre de 2018 \n");
             
                break;
-            default: System.out.println(); System.out.println("Opcion Invalida"); System.out.println();;
+            default: System.out.println(); System.out.println("Opcion No valida:c"); System.out.println();;
          }   
       
       }while(opc != '6');      
