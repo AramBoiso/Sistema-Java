@@ -225,7 +225,7 @@ public class Equipo1{
                   System.out.println("Lo sentimos aun no hay registros agregados");
                break;
             case '4':  
-               exists = false;
+               //exists = false;
                if(atm > 0){
                
                   System.out.println();
@@ -239,7 +239,7 @@ public class Equipo1{
                            if(fol.charAt(i) == '0' || fol.charAt(i) == '1' || fol.charAt(i) == '2' || fol.charAt(i) == '3' || fol.charAt(i) == '4' || fol.charAt(i) == '5' ||
                                fol.charAt(i) == '6' || fol.charAt(i) == '7' || fol.charAt(i) == '8' || fol.charAt(i) == '9')
                               exists = true;
-                           else{ System.out.println("Folio No valido, el folio debe estar en el rango [1 - 100]"); exists = false; break; }
+                           else{ System.out.println("Folio No valido, el folio debe estar en el rango [1 - 100]");  break; }
                         if(exists){
                         
                            folio = Integer.parseInt(fol);
@@ -251,9 +251,9 @@ public class Equipo1{
                                     autoMotor = i;
                                     break;
                                  }else exists = true;
-                           }else{ System.out.println("\n Numero de folio no valido, ingrese uno nuevo en el rango [1 - 100]"); exists = false; } // Avisa si el folio ingresado esta fuera del rango.
+                           }else{ System.out.println("\n Numero de folio no valido, ingrese uno nuevo en el rango [1 - 100] \n"); exists = true; } // Avisa si el folio ingresado esta fuera del rango.
    
-                           if(exists){ System.out.printf("\nEl folio %d no se encuentra registrado\n", folio); break;}                        
+                           if(exists && (folio > 0 && folio <= 100)){ System.out.printf("\nEl folio %d no se encuentra registrado\n", folio); exists = true;  break;}                        
                               //Menu
                            if(exists == false)
                               do{
